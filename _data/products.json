@@ -1,0 +1,93 @@
+[
+  {
+    "_id": "5d725a4a7b292f5f8ceff789",
+    "name": "foodelivery",
+    "description": "Order food from all the restaurants of your city",
+    "costOfPremiumInINR": 800,
+    "productStage": "stable",
+    "freemiumAvailable": true,
+    "startup": "5d713995b721c3bb38c1f5d0",
+    "user": "5d7a514b5d2c12c7449be045"
+  },
+  {
+    "_id": "5d725c84c4ded7bcb480eaa0",
+    "name": "Streetfoodie",
+    "description": "Order street food from street vendors in your city",
+    "costOfPremiumInINR": 150,
+    "productStage": "beta",
+    "freemiumAvailable": true,
+    "startup": "5d713995b721c3bb38c1f5d0",
+    "user": "5d7a514b5d2c12c7449be045"
+  },
+  {
+    "_id": "5d725cb9c4ded7bcb480eaa1",
+    "name": "hire-a-guide",
+    "description": "Hire a guide to make yourself comfortable in a new city",
+    "costOfPremiumInINR": 5000,
+    "productStage": "stable",
+    "freemiumAvailable": false,
+    "startup": "5d713a66ec8f2b88b8f830b8",
+    "user": "5d7a514b5d2c12c7449be046"
+  },
+  {
+    "_id": "5d725cd2c4ded7bcb480eaa2",
+    "name": "Book-a-room",
+    "description": "Book a hotel room for a comfortable stay",
+    "costOfPremiumInINR": 500,
+    "productStage": "alpha",
+    "freemiumAvailable": true,
+    "startup": "5d713a66ec8f2b88b8f830b8",
+    "user": "5d7a514b5d2c12c7449be046"
+  },
+  {
+    "_id": "5d725ce8c4ded7bcb480eaa3",
+    "name": "skillmaster",
+    "description": "learn your favourite skill and become awesome at it",
+    "costOfPremiumInINR": 7500,
+    "productStage": "stable",
+    "freemiumAvailable": true,
+    "startup": "5d725a037b292f5f8ceff787",
+    "user": "5c8a1d5b0190b214360dc031"
+  },
+  {
+    "_id": "5d725cfec4ded7bcb480eaa4",
+    "name": "TeachOnline",
+    "description": "Think you are an expert,now you can teach thousands of other people",
+    "costOfPremiumInINR": 250,
+    "productStage": "stable",
+    "freemiumAvailable": true,
+    "startup": "5d725a037b292f5f8ceff787",
+    "user": "5c8a1d5b0190b214360dc031"
+  },
+  {
+    "_id": "5d725cfec4ded7bcb480eaa5",
+    "name": "PayMe",
+    "description": "get paid for your products and services",
+    "costOfPremiumInINR": 500,
+    "productStage": "stable",
+    "freemiumAvailable": true,
+    "startup": "5d725a1b7b292f5f8ceff788",
+    "user": "5c8a1d5b0190b214360dc032"
+  },
+  {
+    "_id": "5d725cfec4ded7bcb480eaa6",
+    "name": "Paykaro mini Bank",
+    "description": "get loans at 5 percent interest rate",
+    "weeks": 6,
+    "costOfPremiumInINR": 1000,
+    "productStage": "alpha",
+    "freemiumAvailable": false,
+    "startup": "5d725a1b7b292f5f8ceff788",
+    "user": "5c8a1d5b0190b214360dc032"
+  },
+  {
+    "_id": "5d725cfec4ded7bcb480eaa7",
+    "name": "payIntl",
+    "description": "make international payments",
+    "costOfPremiumInINR": 2500,
+    "productStage": "beta",
+    "freemiumAvailable": false,
+    "startup": "5d725a1b7b292f5f8ceff788",
+    "user": "5c8a1d5b0190b214360dc032"
+  }
+]

@@ -1,0 +1,35 @@
+{
+    "name": "Saurav Jha",
+    "role": "Backend Developer",
+    "bio": "I am a Software Developer with a passion for Backend Technologies , Automation and Computer Science in general.",
+    "email": "kkvaruas@gmail.com",
+    "phone": "(+91) 7982662584",
+    "whatsapp": "(+91) 7530003397",
+    "location": "Faridabad, Haryana, India",
+    "socials": {
+        "linkedin": "https://www.linkedin.com/in/varuask",
+        "github": "https://www.github.com/varuask", 
+        "stackoverflow": "https://stackoverflow.com/users/9460402/kkvaruas"
+    }, 
+    "work-ex":{
+        "IBM": {
+            "year": "09/2020-09/2021",
+            "location": "Bangalore",
+            "role": "Associate Developer"
+        },
+        "Kyndryl": {
+            "year": "09/2021-present",
+            "location": "Noida",
+            "role": "Associate Developer"
+        }
+    },
+    "education":{
+        "Institute": "VIT vellore",
+        "Course": "Btech in EEE",
+        "CGPA": 8.2,
+        "year": "07/2016-04/2020"
+    },
+    "skills":["javascript(ECMAScript 6)","nodejs","express","mongodb","Ansible","python","pyXL","C/Cpp"],
+    "languages": ["english","hindi"]
+    
+}

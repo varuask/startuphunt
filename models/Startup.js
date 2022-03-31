@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
+const slugify = require('slugify'); 
+const geocoder = require('../utils/geocoder');
 
-const BootcampSchema = new mongoose.Schema({
+const StartupSchema = new mongoose.Schema({
     name:{
         type: String,
         required: [true,'Please add a name'],
@@ -54,17 +56,16 @@ const BootcampSchema = new mongoose.Schema({
         zipcode: String,
         country: String
     },
-    careers: {
+    businessModel: {
         // Array of strings
         type: [String],
         required: true,
         enum: [
-          'Web Development',
-          'Mobile Development',
-          'UI/UX',
-          'Data Science',
-          'Business',
-          'Other'
+          'b2b',
+          'b2c',
+          'd2c',
+          'c2c',
+          'd2c'
         ]
     },
     averageRating: {
@@ -73,33 +74,91 @@ const BootcampSchema = new mongoose.Schema({
         max: [10, 'Rating must can not be more than 10']
     },
     averageCost: Number,
-    photo: {
+    logo: {
         type: String,
-        default: 'no-photo.jpg'
+        default: 'no-logo.jpg'
     },
-    housing: {
+    profitable: {
         type: Boolean,
-        default: false
+        default: true
     },
-    jobAssistance: {
-        type: Boolean,
-        default: false
+    valuationInDollars: {
+        type: Number
     },
-    jobGuarantee: {
-        type: Boolean,
-        default: false
+    industry: {
+        type: String,
+        default: 'tech'
     },
-    acceptGi: {
-        type: Boolean,
-        default: false
+    fundingStage: {
+        type: String
+        
+    },
+    yearFounded: {
+        type: String
     },
     createdAt: {
         type: Date,
         default: Date.now
+    },
+    user : {
+        type: mongoose.Schema.ObjectId,
+        ref: 'User',
+        required: true
     }
 
 
 
+},{
+    toJSON: {virtuals: true},
+    toObject: {virtuals: true}
+});    
+
+//create startup slug from the same 
+StartupSchema.pre('save',function(next){
+    this.slug = slugify(this.name,{lower:true});
+    next();
+}); 
+
+//Geocode and create location field 
+StartupSchema.pre('save',async function(next) {
+    const loc = await geocoder.geocode(this.address);
+    this.location = {
+        type: 'Point',
+        coordinates: [loc[0].longitude,loc[0].latitude],
+        formattedAddress: loc[0].formattedAddress,
+        street: loc[0].streetName, 
+        city: loc[0].city, 
+        state: loc[0].stateCode, 
+        zipcode: loc[0].zipcode,
+        country: loc[0].countryCode
+    };
+    this.address = undefined;
+}); 
+
+
+//cascade delete products when a startup is deleted 
+StartupSchema.pre('remove',async function(next){
+    console.log(`Products removed ${this._id}`); 
+    await this.model('Product').deleteMany({startup: this._id});
+    next();
 });
 
-module.exports = mongoose.model('BootCamp',BootcampSchema);
+
+
+
+
+
+
+
+// Reverse populate with virtual
+StartupSchema.virtual('products',{
+    ref: 'Product',
+    localField: '_id' ,
+    foreignField: 'startup',
+    justOne:false
+});
+
+
+
+
+module.exports = mongoose.model('Startup',StartupSchema);
