@@ -49,7 +49,12 @@ app.use(mongoSanitize());
 
 
 //set security headers 
-app.use(helmet());
+app.use(helmet.contentSecurityPolicy({
+    directives: {
+        scriptSrc: ["'self'","'unsafe-inline'","'sha256-ZomnyosL2bmZ79LmErHEhL+1fVaBj9NngvpOK/l4qio='"]
+    }
+
+}));
 
 
 //prevent xss attacks
