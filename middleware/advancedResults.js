@@ -30,7 +30,7 @@ const advancedResults = (model,populate) => async (req,res,next)=>{
         if(req.query.select){
             const fields = req.query.select.split(',').join(' '); 
             query = query.select(fields);
-            console.log(fields);
+            
         } 
 
         //sort 
