@@ -14,11 +14,12 @@ const cookieParser = require('cookie-parser')
 const errorHandler = require('./middleware/error');
 const connectDB = require('./config/db');
 
-
 //load env vars 
 dotenv.config({path : './config/config.env'}); 
 //connect to DB 
 connectDB();
+
+
 // Route files 
 
 const startups = require('./routes/startups');

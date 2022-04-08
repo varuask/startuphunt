@@ -1,8 +1,9 @@
 const { modelNames } = require("mongoose");
 
 const advancedResults = (model,populate) => async (req,res,next)=>{
+        
         let query;
-
+        
         //copy req.query 
         const reqQuery = {...req.query};
 
@@ -29,6 +30,7 @@ const advancedResults = (model,populate) => async (req,res,next)=>{
         if(req.query.select){
             const fields = req.query.select.split(',').join(' '); 
             query = query.select(fields);
+            console.log(fields);
         } 
 
         //sort 
@@ -75,7 +77,7 @@ const advancedResults = (model,populate) => async (req,res,next)=>{
 
         res.advancedResults = {
             success: true,
-            count: results.count,
+            count: results.length,
             pagination,
             data: results,
             
